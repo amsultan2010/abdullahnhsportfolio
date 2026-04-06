@@ -1,0 +1,166 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --parchment: #F9F5EE;
+  --parchment-deep: #F2EDE3;
+  --parchment-card: #FFFFFF;
+  --border-warm: #D4C9A8;
+  --border-subtle: #E8E0D0;
+  --espresso: #2C1A0A;
+  --cognac: #8B5A2B;
+  --gold: #C4922A;
+  --text-primary: #1A0E04;
+  --text-secondary: #5C4430;
+  --text-muted: #9A8570;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--parchment);
+  color: var(--text-primary);
+}
+
+body {
+  background-color: var(--parchment);
+  color: var(--text-primary);
+  font-family: var(--font-garamond), 'EB Garamond', Georgia, serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 18px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--parchment); }
+::-webkit-scrollbar-thumb { background: var(--border-warm); }
+::-webkit-scrollbar-thumb:hover { background: var(--cognac); }
+
+/* Blinking cursor */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.cursor-blink { animation: blink 1.2s step-end infinite; }
+
+/* Scroll-reveal — starts further down for drama */
+.fade-in-hidden {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+.fade-in-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover — lift with warm shadow + shimmer */
+.card-hover {
+  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;
+  overflow: hidden;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(44,26,10,0.14);
+}
+
+/* Gold shimmer sweep on card hover */
+.card-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 40%,
+    rgba(196,146,42,0.09) 50%,
+    transparent 60%
+  );
+  transform: translateX(-100%);
+  transition: none;
+  pointer-events: none;
+  border-radius: inherit;
+}
+.card-hover:hover::after {
+  animation: shimmer-sweep 0.65s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+@keyframes shimmer-sweep {
+  to { transform: translateX(150%); }
+}
+
+/* Scroll indicator bounce */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(8px); }
+}
+.bounce-subtle { animation: bounce-subtle 2s ease-in-out infinite; }
+
+/* Modal animation */
+@keyframes modal-fade-in {
+  from { opacity: 0; transform: scale(0.96) translateY(12px); }
+  to   { opacity: 1; transform: scale(1)    translateY(0); }
+}
+.modal-enter { animation: modal-fade-in 0.28s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+/* ── Animated blob keyframes ── */
+@keyframes blob-drift-1 {
+  0%,100% { transform: translate(0,    0  ) scale(1.0); }
+  25%     { transform: translate(60px, -80px) scale(1.08); }
+  50%     { transform: translate(-40px, 60px) scale(0.94); }
+  75%     { transform: translate(80px,  40px) scale(1.04); }
+}
+@keyframes blob-drift-2 {
+  0%,100% { transform: translate(0,    0  ) scale(1.0); }
+  20%     { transform: translate(-70px, 50px) scale(1.06); }
+  50%     { transform: translate(50px,-60px) scale(0.96); }
+  80%     { transform: translate(-30px, 80px) scale(1.03); }
+}
+@keyframes blob-drift-3 {
+  0%,100% { transform: translate(0,    0  ) scale(1.0); }
+  30%     { transform: translate(40px,  70px) scale(0.92); }
+  60%     { transform: translate(-60px,-40px) scale(1.07); }
+  90%     { transform: translate(30px, -60px) scale(1.02); }
+}
+
+/* ── Number counter pulse on reveal ── */
+@keyframes count-pop {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.05); }
+  100% { transform: scale(1);    opacity: 1; }
+}
+.count-pop { animation: count-pop 0.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+
+/* ── Underline expand on nav hover ── */
+.nav-link-underline {
+  position: relative;
+}
+.nav-link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--cognac);
+  transition: width 0.3s ease;
+}
+.nav-link-underline:hover::after,
+.nav-link-active::after {
+  width: 100%;
+}
+.nav-link-active::after {
+  width: 100%;
+}
+
+/* ── Horizontal rule section separator ── */
+.section-separator {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 64px;
+}
+.section-separator .sep-line {
+  flex: 1;
+  height: 1px;
+  background: var(--border-warm);
+}
