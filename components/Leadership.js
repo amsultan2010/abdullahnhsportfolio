@@ -69,11 +69,10 @@ function PRIMECard() {
         </p>
       </div>
       <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
-        I founded PRIME because Pingry had no space for students who wanted to engage seriously with
-        engineering research. In its first year, the club grew to 12 recurring members and hosted two
-        speaker sessions with engineering professors from local universities. This is an unusual achievement
-        for a brand-new student-led organization. Everything from outreach to logistics to membership was
-        built from zero.
+        Pingry had no space for students who wanted to engage seriously with engineering research — so I
+        built one. PRIME went from an idea to a club with 12 recurring members and two speaker sessions
+        with university engineering professors in its first year. The hardest part wasn&apos;t the logistics.
+        It was convincing people that a student-run research club was worth their time. The numbers say it was.
       </p>
       <div ref={statRef} className="flex mt-2" style={{ border: '1px solid #E8E0D0', borderRadius: '2px', backgroundColor: '#F9F5EE' }}>
         {[{ n: 12, l: 'Recurring Members' }, { n: 2, l: 'Professor Speakers' }, { n: 1, l: 'Year to Launch' }].map((s, i) => (
@@ -100,17 +99,12 @@ function MAGCard() {
         </p>
       </div>
       <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
-        At Pingry, the entire Muslim student population across middle and high school numbered around
-        15 students. During a politically charged climate, I led the Muslim Affinity Group for two
-        consecutive years, creating a consistent, safe space for Muslim students to gather, be seen,
-        and support each other. This wasn&apos;t a role I inherited. I built the community.
+        Fifteen Muslim students. That&apos;s how many were spread across Pingry&apos;s entire middle and high school
+        when I took on leading the Muslim Affinity Group. During a time when the political climate made
+        being visibly Muslim feel complicated, I led the group for two consecutive years — showing up
+        consistently so others felt they could too. A community doesn&apos;t maintain itself. Someone has to
+        decide it matters enough to keep going.
       </p>
-      <div className="pl-6 py-5 pr-5" style={{ borderLeft: '4px solid #8B5A2B', backgroundColor: '#F9F5EE', borderRadius: '0 2px 2px 0' }}>
-        <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8, fontStyle: 'italic' }}>
-          &ldquo;Leadership isn&apos;t about titles. It&apos;s about who shows up when it&apos;s needed most.&rdquo;
-        </p>
-        <p className="font-serif mt-3" style={{ fontSize: '14px', fontStyle: 'italic', color: '#9A8570' }}>— personal reflection</p>
-      </div>
     </div>
   )
 }

@@ -1,8 +1,6 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
-import Image from 'next/image'
-
 function useReveal(delay = 0) {
   const ref = useRef(null)
   useEffect(() => {
@@ -48,79 +46,72 @@ function SectionHeader({ label, subtitle, r }) {
   )
 }
 
+function ProjectLink({ href, label }) {
+  return (
+    <a
+      href={href}
+      target="_blank" rel="noopener noreferrer"
+      className="font-serif font-600 transition-colors"
+      style={{ fontSize: '17px', color: '#8B5A2B', borderBottom: '1px solid #D4C9A8', paddingBottom: '3px' }}
+      onMouseEnter={e => { e.currentTarget.style.color = '#2C1A0A'; e.currentTarget.style.borderBottomColor = '#2C1A0A' }}
+      onMouseLeave={e => { e.currentTarget.style.color = '#8B5A2B'; e.currentTarget.style.borderBottomColor = '#D4C9A8' }}
+    >
+      {label} →
+    </a>
+  )
+}
+
 function BacktesterCard() {
   const ref = useReveal(0)
   return (
-    <div ref={ref} className="card-hover relative flex flex-col lg:flex-row" style={{ backgroundColor: '#FFFFFF', border: '1px solid #D4C9A8', borderLeft: '4px solid #2C1A0A', borderRadius: '2px', boxShadow: '0 4px 24px rgba(44,26,10,0.07)' }}>
-      {/* Left: text */}
-      <div className="flex-1 flex flex-col gap-7 p-10" style={{ borderRight: '1px solid #E8E0D0' }}>
+    <div ref={ref} className="card-hover relative flex flex-col" style={{ backgroundColor: '#FFFFFF', border: '1px solid #D4C9A8', borderLeft: '4px solid #2C1A0A', borderRadius: '2px', boxShadow: '0 4px 24px rgba(44,26,10,0.07)' }}>
+
+      {/* Project 1 */}
+      <div className="flex flex-col gap-7 p-10">
         <Tag>Quantitative Finance · Python · Web</Tag>
         <h3 className="font-serif font-700 text-[#1A0E04]" style={{ fontSize: 'clamp(24px,2.5vw,34px)', letterSpacing: '-0.015em', lineHeight: 1.2 }}>
           Algorithmic Backtesting Engine
         </h3>
         <p className="font-body text-[#5C4430]" style={{ fontSize: '19px', lineHeight: 1.8 }}>
-          Built a fully functional backtesting engine that compares an SMA crossover strategy against
-          a buy-and-hold benchmark using live market data via the yfinance library. I wrote all core
-          Python logic myself: the data fetching, strategy logic, and performance metrics. I used
-          Claude Code only to make it deployable as a web application. This reflects my serious interest
-          in algorithmic trading and quantitative development.
+          Built a backtesting engine that stress-tests an SMA crossover strategy against a buy-and-hold
+          benchmark using live market data via yfinance. Every line of core logic — data fetching, strategy
+          execution, performance calculation — was written from scratch. Seeing a hypothesis about market
+          behavior transform into a working, deployed system is what made me certain that quantitative
+          development is where I want to build my career.
         </p>
-        <div className="flex flex-wrap gap-4">
-          <StatBox label="Strategy"    value="SMA Crossover"   />
-          <StatBox label="Benchmark"   value="Buy & Hold"      />
-          <StatBox label="Data Source" value="yfinance (live)" />
-        </div>
-        {/* Links row */}
         <div className="flex flex-wrap items-center gap-8 mt-1">
-          <a
-            href="https://quantbacktesterpy.vercel.app"
-            target="_blank" rel="noopener noreferrer"
-            className="font-serif font-600 transition-colors"
-            style={{ fontSize: '17px', color: '#8B5A2B', borderBottom: '1px solid #D4C9A8', paddingBottom: '3px' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#2C1A0A'; e.currentTarget.style.borderBottomColor = '#2C1A0A' }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#8B5A2B'; e.currentTarget.style.borderBottomColor = '#D4C9A8' }}
-          >
-            View Live Site →
-          </a>
-          <a
-            href="https://github.com/amsultan2010/quantbacktester"
-            target="_blank" rel="noopener noreferrer"
-            className="font-serif font-600 transition-colors"
-            style={{ fontSize: '17px', color: '#8B5A2B', borderBottom: '1px solid #D4C9A8', paddingBottom: '3px' }}
-            onMouseEnter={e => { e.currentTarget.style.color = '#2C1A0A'; e.currentTarget.style.borderBottomColor = '#2C1A0A' }}
-            onMouseLeave={e => { e.currentTarget.style.color = '#8B5A2B'; e.currentTarget.style.borderBottomColor = '#D4C9A8' }}
-          >
-            View Project GitHub →
-          </a>
+          <ProjectLink href="https://quantbacktesterpy.vercel.app" label="View Live Site" />
         </div>
       </div>
 
-      {/* Right: mock browser + screenshot */}
-      <div className="lg:w-[460px] shrink-0 flex flex-col">
-        <div className="flex flex-col h-full" style={{ overflow: 'hidden' }}>
-          <div className="flex items-center gap-3 px-4 py-3 shrink-0" style={{ backgroundColor: '#F2EDE3', borderBottom: '1px solid #D4C9A8' }}>
-            <div className="flex gap-2">
-              {[0,1,2].map(i => <div key={i} className="w-3 h-3 rounded-full" style={{ backgroundColor: '#D4C9A8' }} />)}
-            </div>
-            <div className="flex-1 flex items-center gap-2 px-3 py-1.5 ml-2" style={{ backgroundColor: '#FFFFFF', border: '1px solid #D4C9A8', borderRadius: '2px' }}>
-              <span className="font-serif" style={{ fontSize: '13px', color: '#9A8570', fontStyle: 'italic' }}>
-                quantbacktesterpy.vercel.app
-              </span>
-              <a href="https://quantbacktesterpy.vercel.app" target="_blank" rel="noopener noreferrer"
-                className="ml-auto transition-colors" style={{ color: '#9A8570' }}
-                onMouseEnter={e => e.currentTarget.style.color = '#2C1A0A'}
-                onMouseLeave={e => e.currentTarget.style.color = '#9A8570'}
-              >
-                <svg width="11" height="11" viewBox="0 0 11 11" fill="none">
-                  <path d="M5.5 1H10v4.5M10 1L4 7M1 4.5V10H6.5" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-          <div className="relative flex-1" style={{ minHeight: '280px' }}>
-            <Image src="/backtester-preview.png" alt="QuantBacktesterPy live screenshot" fill className="object-cover object-top" sizes="460px" />
-          </div>
+      {/* Divider */}
+      <div style={{ height: '1px', backgroundColor: '#2a2a2a', marginLeft: '40px', marginRight: '40px' }} />
+
+      {/* Project 2 */}
+      <div className="flex flex-col gap-7 p-10">
+        <Tag>Risk Parity · Portfolio Theory · Multi-Asset</Tag>
+        <h3 className="font-serif font-700 text-[#1A0E04]" style={{ fontSize: 'clamp(24px,2.5vw,34px)', letterSpacing: '-0.015em', lineHeight: 1.2 }}>
+          Multi-Stock Portfolio Optimizer with Risk Parity
+        </h3>
+        <p className="font-body text-[#5C4430]" style={{ fontSize: '19px', lineHeight: 1.8 }}>
+          The backtester answered one question — does this strategy work? The portfolio optimizer asked
+          the next one: how do you size positions across multiple assets without letting one stock dominate
+          your risk exposure? This second project extends the original engine to test SMA crossover
+          strategies across multiple stocks simultaneously, weighted using risk parity — a capital allocation
+          method used by institutional quants to balance risk contribution across a portfolio. Building it
+          required understanding not just code, but the financial theory underneath it.
+        </p>
+        <div className="flex flex-wrap items-center gap-8 mt-1">
+          <ProjectLink href="https://quantportfoliopy.vercel.app" label="View Live Site" />
         </div>
+      </div>
+
+      {/* Stat row */}
+      <div className="flex flex-wrap gap-4 px-10 pb-10">
+        <StatBox label="Deployed Projects" value="2"                    />
+        <StatBox label="Strategy"          value="SMA Crossover"        />
+        <StatBox label="Method"            value="Risk Parity Weighting" />
+        <StatBox label="Data"              value="yfinance (live)"       />
       </div>
     </div>
   )
@@ -169,9 +160,10 @@ function ChampionshipCard() {
         Lawrenceville State<br />Championships
       </h3>
       <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
-        Competing on the Pingry JV swim team, I won my race at the Lawrenceville State Championships,
-        directly contributing to our team&apos;s overall tournament victory. Athletics taught me what it
-        means to perform under pressure when the outcome is bigger than yourself.
+        Sports make the stakes simple: you either perform when it counts or you don&apos;t. At the
+        Lawrenceville State Championships, I won my race on the Pingry JV swim team — a result that
+        fed directly into the team&apos;s overall tournament win. There&apos;s no individual performance when
+        the scoreboard is shared.
       </p>
       <div className="mt-auto pt-6" style={{ borderTop: '1px solid #E8E0D0' }}>
         <div className="flex items-start">

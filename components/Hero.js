@@ -120,9 +120,9 @@ export default function Hero() {
 
               {/* Body — no em-dashes */}
               <p className="font-body text-[#5C4430] mb-12 max-w-xl" style={{ fontSize: 'clamp(19px,1.6vw,22px)', lineHeight: 1.8 }}>
-                I&apos;m Abdullah, a 10th grade student in Riyadh with deep interests in
-                quantitative finance, computer science, and research. Everything on this
-                page is something I initiated, built, or led from scratch.
+                I&apos;m Abdullah — a 10th grade student based in Riyadh with a focused interest in
+                quantitative finance and algorithmic systems. Every project, club, paper, and community
+                on this page started because I saw something missing and decided to build it.
               </p>
 
               {/* CTAs */}

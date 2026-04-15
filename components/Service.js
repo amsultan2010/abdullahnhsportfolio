@@ -29,9 +29,9 @@ function SleepOutsideCard() {
         Sleep Outside for Youth Homelessness
       </h3>
       <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
-        I participated in a campaign where students slept outside overnight to raise awareness about
-        youth homelessness. The night happened to fall on Eid, and it was a heavy rainstorm. I showed
-        up anyway. Cause over comfort.
+        The night we slept outside to raise awareness for youth homelessness landed on Eid. It was also
+        a rainstorm. I went anyway — because the students those funds were meant to help didn&apos;t get to
+        opt out of being homeless because the timing was inconvenient. Neither did I.
       </p>
       <div className="inline-flex items-center gap-3 px-5 py-3 self-start" style={{ border: '1px solid #E8E0D0', borderRadius: '2px', backgroundColor: '#F9F5EE' }}>
         <span style={{ fontSize: '18px' }} aria-hidden="true">🌧</span>
@@ -58,9 +58,9 @@ function MLKCard() {
         MLK Day Stall<br />Annual School Celebration
       </h3>
       <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
-        I curated and hosted a stall at Pingry&apos;s annual MLK Day celebration, displaying artifacts
-        related to Martin Luther King Jr.&apos;s life and presenting to fellow students about the impact
-        of his decisions. This was an act of civic education, using history to anchor present values.
+        I didn&apos;t just staff a table at Pingry&apos;s MLK Day celebration — I built a stall around curated
+        artifacts and presented to students about the specific decisions King made that changed things.
+        History only teaches something if someone bothers to explain the choices inside it.
       </p>
       <div className="mt-auto pt-6 flex gap-0" style={{ borderTop: '1px solid #E8E0D0' }}>
         {[{ l: 'Event', v: 'Pingry MLK Day' }, { l: 'Role', v: 'Curator & Presenter' }, { l: 'Focus', v: 'Civil Rights' }].map((d, i) => (
