@@ -1,6 +1,7 @@
 import Navbar          from '@/components/Navbar'
 import Hero             from '@/components/Hero'
 import Accomplishments  from '@/components/Accomplishments'
+import Scholarship      from '@/components/Scholarship'
 import Leadership       from '@/components/Leadership'
 import Service          from '@/components/Service'
 import Recommendations  from '@/components/Recommendations'
@@ -18,6 +19,7 @@ export default function Home() {
         <main>
           <Hero />
           <Accomplishments />
+          <Scholarship />
           <Leadership />
           <Service />
           <Recommendations />

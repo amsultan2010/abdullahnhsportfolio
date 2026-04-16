@@ -54,7 +54,9 @@ function PRIMECard() {
   const statRef = useRef(null)
   useEffect(() => {
     const el = statRef.current; if (!el) return
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); obs.disconnect() } }, { threshold: 0.4 })
+    const rect = el.getBoundingClientRect()
+    if (rect.top < window.innerHeight && rect.bottom > 0) { setGo(true); return }
+    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) { setGo(true); obs.disconnect() } }, { threshold: 0.1 })
     obs.observe(el); return () => obs.disconnect()
   }, [])
   return (
