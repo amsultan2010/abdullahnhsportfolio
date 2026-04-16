@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import Modal from './Modal'
 
 function useCounter(target, duration = 1800, triggered = false) {
@@ -167,6 +168,32 @@ export default function Hero() {
               </div>
             </div>
 
+            {/* Right: portrait photo */}
+            <div className="hidden lg:flex lg:w-[380px] xl:w-[420px] shrink-0 items-center justify-center mt-12 lg:mt-0">
+              <div
+                className="relative overflow-hidden"
+                style={{
+                  width: '100%',
+                  aspectRatio: '3/4',
+                  border: '1px solid #D4C9A8',
+                  borderRadius: '2px',
+                  boxShadow: '0 12px 48px rgba(44,26,10,0.12)',
+                }}
+              >
+                <Image
+                  src="/hero-photo.jpg"
+                  alt="Abdullah Sultan"
+                  fill
+                  className="object-cover object-top"
+                  sizes="420px"
+                  priority
+                />
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{ backgroundColor: 'rgba(249,245,238,0.06)', mixBlendMode: 'multiply' }}
+                />
+              </div>
+            </div>
           </div>
         </div>
 

@@ -17,14 +17,14 @@ function useReveal(delay = 0) {
 }
 
 const courses = [
-  { course: 'IB Math AA SL',        grade: '6 / 7' },
   { course: 'Integrated Science 10', grade: '6 / 7' },
-  { course: 'English 10',            grade: '6 / 7' },
   { course: 'Spanish II',            grade: '6 / 7' },
-  { course: 'Social Studies 10',     grade: '6 / 7' },
+  { course: 'English 10',            grade: '6 / 7' },
+  { course: 'Physical Education',    grade: '7 / 7' },
   { course: 'Speech',                grade: '6 / 7' },
   { course: 'Robotics I',            grade: '7 / 7' },
-  { course: 'Physical Education',    grade: '7 / 7' },
+  { course: 'IB Math AA SL',        grade: '6 / 7' },
+  { course: 'Social Studies 10',     grade: '7 / 7' },
 ]
 
 function AcademicCard() {
