@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import CrisprModal from './CrisprModal'
 function useReveal(delay = 0) {
   const ref = useRef(null)
   useEffect(() => {
@@ -119,34 +120,39 @@ function BacktesterCard() {
 
 function CrisprCard() {
   const ref = useReveal(80)
+  const [paperOpen, setPaperOpen] = useState(false)
   return (
-    <div ref={ref} className="card-hover relative flex flex-col gap-6 p-10" style={{ backgroundColor: '#FFFFFF', border: '1px solid #D4C9A8', borderLeft: '4px solid #2C1A0A', borderRadius: '2px', boxShadow: '0 4px 24px rgba(44,26,10,0.07)' }}>
-      <div className="absolute top-8 right-8">
-        <span className="font-serif" style={{ fontSize: '13px', fontStyle: 'italic', color: '#9A8570' }}>[CRISPR/Cas9]</span>
+    <>
+      <div ref={ref} className="card-hover relative flex flex-col gap-6 p-10" style={{ backgroundColor: '#FFFFFF', border: '1px solid #D4C9A8', borderLeft: '4px solid #2C1A0A', borderRadius: '2px', boxShadow: '0 4px 24px rgba(44,26,10,0.07)' }}>
+        <div className="absolute top-8 right-8">
+          <span className="font-serif" style={{ fontSize: '13px', fontStyle: 'italic', color: '#9A8570' }}>[CRISPR/Cas9]</span>
+        </div>
+        <Tag>Molecular Biology · Research · Published</Tag>
+        <h3 className="font-serif font-700 text-[#1A0E04] pr-20" style={{ fontSize: 'clamp(22px,2.2vw,30px)', letterSpacing: '-0.015em', lineHeight: 1.2 }}>
+          Published Research:<br />CRISPR/Cas9 Delivery Methods
+        </h3>
+        <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
+          Co-authored a peer-reviewed research paper on the benefits and drawbacks of CRISPR/Cas9 delivery
+          methods alongside an MIT graduate and University of Michigan PhD candidate. Published in The
+          Pingry School&apos;s research journal. I initiated this collaboration by cold-outreaching researchers
+          until I found someone willing to work with a high school student.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <StatBox label="Co-Author"    value="MIT Grad & UMich PhD"    />
+          <StatBox label="Published In" value="Pingry Research Journal"  />
+        </div>
+        <button
+          onClick={() => setPaperOpen(true)}
+          className="font-serif font-600 self-start px-6 py-3 transition-all duration-250 mt-auto"
+          style={{ border: '1px solid #8B5A2B', color: '#8B5A2B', borderRadius: '2px', fontSize: '16px', backgroundColor: 'transparent', cursor: 'pointer' }}
+          onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#8B5A2B'; e.currentTarget.style.color = '#F9F5EE' }}
+          onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#8B5A2B' }}
+        >
+          Read Paper →
+        </button>
       </div>
-      <Tag>Molecular Biology · Research · Published</Tag>
-      <h3 className="font-serif font-700 text-[#1A0E04] pr-20" style={{ fontSize: 'clamp(22px,2.2vw,30px)', letterSpacing: '-0.015em', lineHeight: 1.2 }}>
-        Published Research:<br />CRISPR/Cas9 Delivery Methods
-      </h3>
-      <p className="font-body text-[#5C4430]" style={{ fontSize: '18px', lineHeight: 1.8 }}>
-        Co-authored a peer-reviewed research paper on the benefits and drawbacks of CRISPR/Cas9 delivery
-        methods alongside an MIT graduate and University of Michigan PhD candidate. Published in The
-        Pingry School&apos;s research journal. I initiated this collaboration by cold-outreaching researchers
-        until I found someone willing to work with a high school student.
-      </p>
-      <div className="flex flex-wrap gap-4">
-        <StatBox label="Co-Author"    value="MIT Grad & UMich PhD"    />
-        <StatBox label="Published In" value="Pingry Research Journal"  />
-      </div>
-      <a href="#"
-        className="font-serif font-600 self-start px-6 py-3 transition-all duration-250 mt-auto"
-        style={{ border: '1px solid #8B5A2B', color: '#8B5A2B', borderRadius: '2px', fontSize: '16px' }}
-        onMouseEnter={e => { e.currentTarget.style.backgroundColor = '#8B5A2B'; e.currentTarget.style.color = '#F9F5EE' }}
-        onMouseLeave={e => { e.currentTarget.style.backgroundColor = 'transparent'; e.currentTarget.style.color = '#8B5A2B' }}
-      >
-        Read Paper →
-      </a>
-    </div>
+      <CrisprModal isOpen={paperOpen} onClose={() => setPaperOpen(false)} />
+    </>
   )
 }
 

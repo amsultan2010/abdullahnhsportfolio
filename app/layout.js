@@ -1,4 +1,4 @@
-import { Cormorant_Garamond, EB_Garamond, Courier_Prime } from 'next/font/google'
+import { Cormorant_Garamond, EB_Garamond, Courier_Prime, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -22,6 +22,13 @@ const courierPrime = Courier_Prime({
   display: 'swap',
 })
 
+const jetbrainsMono = JetBrains_Mono({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-jetbrains',
+  display: 'swap',
+})
+
 export const metadata = {
   title: 'Abdullah Sultan — NHS Portfolio',
   description:
@@ -32,7 +39,7 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${ebGaramond.variable} ${courierPrime.variable}`}
+      className={`${cormorant.variable} ${ebGaramond.variable} ${courierPrime.variable} ${jetbrainsMono.variable}`}
     >
       <body>{children}</body>
     </html>
